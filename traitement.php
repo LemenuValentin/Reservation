@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>Réservation</title>
+		<link href='style.css' type='text/css' rel='stylesheet' />
 	</head>
 	<body>
 		<h1>RESERVATION</h1>
@@ -30,10 +31,8 @@
 			<tr>
 			<td>Assurance annulation</td><td><?php echo $assurance ?></td>
 			</tr>
-			<tr>
-			<td><input type="submit" value="Etape suivante" /></td><td><input type="submit" value="Annuler réservation" /></td><td><input type="submit" value="Annuler réservation" /></td>
-			</tr>
+		</table><br>
+			<input type="submit" value="Etape suivante" /><input type="submit" value="Annuler réservation" /><input type="submit" value="Annuler réservation" />
 		</form>
-		</table>
 	</body>
 </html>

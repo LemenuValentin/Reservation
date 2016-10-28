@@ -1,26 +1,25 @@
 <?php
 	class information 
 	{
-		private $destination;
-		private $nb_traveler;
+		private $Destination;
+		private $NombrePlaces;
 		private $insurance;
-		private $listTravelers;
 		
 		public function __construct($dest, $nb_place, $insurance) 
 		{ 
-		   $this->destination = $dest;  
-		   $this->nb_traveler = $nb_place;
+		   $this->Destination = $dest;  
+		   $this->NombrePlaces = $nb_place;
 		   $this->insurance = $insurance;
 		}
 		
 		public function get_destination()  
 		{  
-		   return $this->destination ;  
+		   return $this->Destination ;  
 		} 
 	
 		public function get_traveler()  
 		{  
-		   return $this->nb_traveler;  
+		   return $this->NombrePlaces;  
 		}
 		
 		public function get_insurance()

@@ -10,7 +10,6 @@
 		<table>
 		<?php
 		$affichage = "";
-		//utiliser name=['age'] foreach
 		for($i = 0; $i < $nbPlaces ; $i++)
 		{	
 			$affichage .= "<tr>
@@ -25,8 +24,14 @@
 			<form method='post' action='Confirmation.php'>
 			$affichage
 			</table><br>
-			<input type='submit' value='Etape suivante' name='submit1' /><input type='submit' value='Etape précédente' name='submit2/><input type='submit' value='Annuler réservation' name='submit2' />
-		</form>";
+			<input type='submit' value='Etape suivante' name='submit' />
+			</form>
+			<form method='post' action='Controler.php?=page=homepage'>
+			<input type='submit' value='précédent' />
+			</form>
+			<form method='post' action='Controler.php?page=cancel'>
+			<input type='submit' value='Annuler' />
+			</form>";
 		?>
 	</body>
 </html>

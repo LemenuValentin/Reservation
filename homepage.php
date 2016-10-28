@@ -11,20 +11,23 @@
 			Le prix de l'assurance annulation est de 20 euros quel que soit le nombre de voyageurs.
 		</p>
 		<table>
-		<?php //ATTENTION vérifier les valeurs entrées !!! ?>
+		<?php var_dump($info); //ATTENTION vérifier les valeurs entrées !!! ?>
 		
 		<form method="post" action="Controler.php?page=details">
 			<tr>
-			<td>Destination : </td><td><input type="text" name="Destination" value=''/></td>
+			<td>Destination : </td><td><input type="text" name="Destination" value='<?php echo $info->get_destination(); ?>'/></td>
 			</tr>
 			<tr>
-			<td>Nombre de places : </td><td><input type="text" name="NombrePlaces" value='' /></td>
+			<td>Nombre de places : </td><td><input type="text" name="NombrePlaces" value='<?php echo $info->get_traveler(); ?>' /></td>
 			</tr>
 			<tr>
-			<td>Assurance annulation : </td><td><input type="checkbox" value="value1" name="AssuranceAnnulation" /><br></td>
+			<td>Assurance annulation : </td><td><input type="checkbox"  name="insurance" value=<?php if ($info->get_insurance()) /><br></td> //réussir à cocher si c'était coché
 			</tr>
 		</table><br>
-			<input type="submit" value="Etape suivante" name='submit'/><input type="submit" value="Annuler réservation" name='stop' />
+			<input type="submit" value="Etape suivante" name='submit'/>
+		</form>
+		<form method='post' action='Controler.php?page=cancel'>
+		<input type='submit' value='Annuler' />
 		</form>
 		
 	<p>

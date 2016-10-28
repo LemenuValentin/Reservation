@@ -2,24 +2,24 @@
 	session_start();
 	include ('information.php');
 	
-	$nbPlaces = 0;
+	$nbPlaces = "";
 	$destination = "";
 	$insurance = false;
 	
-	//Regarde si il y a une info dans la session
+	//Is there informations in the sessionRegarde si il y a une info dans la session
 	if(!empty($_SESSION['info']))
 	{
-		//si il y en a une, on récupère l'objet 'info'
+		//If there is one, we take it
 		$info = unserialize($_SESSION['info']);
 	}
 	else
 	{
-		//si il n'y a pas info en session, On crée l'objet information et on le sauve en session sous 'info'
+		//If no informations, create a information object and save it in session as "info"
 		$info = new information ($destination, $nbPlaces, $insurance);
 		$_SESSION['info'] = serialize($info);	
 	}
 	
-	//quand on appuie sur le bouton, on va chercher les valeurs dans homepage
+	//When we put on the button, we search values in homepage
 	if (isset($_POST['submit']))
 	{
 		$nbPlaces = $_POST['NombrePlaces'];
@@ -28,9 +28,12 @@
 			{
 				$insurance= true;
 			}
+	//New info		
+	$info = new information ($destination, $nbPlaces, $insurance);
+	$_SESSION['info'] = serialize($info);
 	}
 	
-	//Savoir quel page il faut ouvrir
+	//To know which page must be opened
 	if (isset($_GET['page']))
 	{
 		$page = $_GET['page'];
@@ -48,6 +51,11 @@
 			
 		case 'details':
 			include ('Details.php');
+			break;
+			
+		case 'cancel':
+			session_destroy();
+			include('homepage.php');
 			break;
 	}
 			
