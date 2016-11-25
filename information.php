@@ -4,12 +4,14 @@
 		private $Destination;
 		private $NombrePlaces;
 		private $insurance;
+		private $listTravelers;
 		
 		public function __construct($dest, $nb_place, $insurance) 
 		{ 
 		   $this->Destination = $dest;  
 		   $this->NombrePlaces = $nb_place;
 		   $this->insurance = $insurance;
+		   $this->listTravelers = array();
 		}
 		
 		public function get_destination()  
@@ -27,4 +29,9 @@
 			return $this->insurance;
 		}
 		
+		public function get_list()
+		{
+			return $this->listTravelers;
+		}
+
 	}

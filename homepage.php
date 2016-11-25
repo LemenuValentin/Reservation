@@ -21,7 +21,7 @@
 			<td>Nombre de places : </td><td><input type="text" name="NombrePlaces" value='<?php echo $info->get_traveler(); ?>' /></td>
 			</tr>
 			<tr>
-			<td>Assurance annulation : </td><td><input type="checkbox"  name="insurance" value='' /><br></td> <?php //réussir à cocher si c'était coché ?>
+			<td>Assurance annulation : </td><td><input type="checkbox"  name="insurance"  value='$info->get_insurance()' <?php if ($info->get_insurance()) echo 'checked'; ?>  /><br></td>
 			</tr>
 		</table><br>
 			<input type="submit" value="Etape suivante" name='submit'/>

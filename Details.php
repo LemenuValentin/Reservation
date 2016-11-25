@@ -10,21 +10,22 @@
 		<table>
 		<?php
 		$affichage = "";
+		var_dump($passenger);
 		for($i = 0; $i < $nbPlaces ; $i++)
 		{	
 			$affichage .= "<tr>
-						  <td>Nom : </td><td><input type='text' name='name' /></td>
+						  <td>Nom : </td><td><input type='text' name='name' value='<?php if (sizeof($passenger)>0) echo $passenger[$i]->get_name(); ?>' /></td>
 						  </tr>
 						  <tr>
-						  <td>Age: </td><td><input type='text' name='Age' /></td>
+						  <td>Age: </td><td><input type='text' name='Age' value='<?php if (sizeof($passenger)>0) echo $passenger[$i]->get_age(); ?>' /></td>
 						  </tr>
 						  <tr>";
 		}
 			echo "
-			<form method='post' action='Confirmation.php'>
+			<form method='post' action='Controler.php?page=validation'>
 			$affichage
 			</table><br>
-			<input type='submit' value='Etape suivante' name='submit' />
+			<input type='submit' value='Etape suivante' name='submit1' />
 			</form>
 			<form method='post' action='Controler.php?=page=homepage'>
 			<input type='submit' value='précédent' />
