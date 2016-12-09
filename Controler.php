@@ -1,102 +1,67 @@
 <?php
-	session_start();
-	include ('information.php');
-	include ('traveler.php');
-	
-	$nbPlaces = "";
-	$destination = "";
-	$insurance = false;
-	
-	//Is there informations in the sessionRegarde si il y a une info dans la session
-	if(!empty($_SESSION['info']))
-	{
-		//If there is one, we take it
-		$info = unserialize($_SESSION['info']);
-	}
-	else
-	{
-		//If no informations, create a information object and save it in session as "info"
-		$info = new information ($destination, $nbPlaces, $insurance);
-		$_SESSION['info'] = serialize($info);	
-	}
-	
-	//When we put on the button, we search values in homepage
-	if (isset($_POST['submit']))
-	{
-		$nbPlaces = $_POST['NombrePlaces'];
-		$destination = $_POST['Destination'];
-		if (isset ($_POST['insurance']))
-			{
-				$insurance= true;
-			}
-	//New info		
-	$info = new information ($destination, $nbPlaces, $insurance);
-	$_SESSION['info'] = serialize($info);
-	}
-		
-	//create or research a traveler
-	if(!empty($_SESSION['passenger']))
-	{  
-		$passenger[]= unserialize($_SESSION['passenger']);
-	}
-	
-	
-	$passenger = array();
-	$name = null;
-	$age = null;
-	
-	if (isset($_POST['Submit1']))
-	{
-		for($i = 0; $i < $info-> get_traveler(); $i++)
-		{		
-			//Creation of a new array passenger
-			if(isset($_POST['name'], $_POST['age']))
-			{
-				$name = $_POST['name'][$i];
-				$age = $_POST['age'][$i];
-			}
-			
-			$passenger[] = new traveler ($name,$age);
-			
-		}
-		var_dump($passenger);
-		$_SESSION['passenger'] = serialize($passenger);
-	}
-	
-	
-	//To know which page must be opened
-	if (isset($_GET['page']))
-	{
-		$page = $_GET['page'];
-	}
-	else
-	{
-		$page = 'homepage';
-	}
-	
-	switch($page)
-	{	
-		case 'homepage':
-			include ('homepage.php'); //rajouter des is_file pour vérifier si on ouvre la bonne page.
-			break;
-			
-		case 'details':
-			include ('Details.php');
-			break;
-		
-		case 'validation':
-			include ('validation.php');
-			break;
-		
-		case 'reservation':
-			include ('reservation');
-			break;
-			
-		case 'cancel':
-			session_destroy();
-			include('homepage.php');
-			break;
-	}
-			
+include ('information.php');
+session_start();
+#Session recuperation
+if (isset($_SESSION["info"])&& !empty($_SESSION['info'])) {
+    $info = unserialize($_SESSION['info']);
+  } 
+else
+  {
+    $info = new info();
+  }
+//when press "Etape suivante" Go to page 2 (detail) if a destination, the nbrPlaces is given.
+if(!empty($_POST['Submit']))
+{
+  $info->setDestination($_POST['Destination']);
+  $info->setNbPlaces($_POST['NbPlaces']);
+  if (isset($_POST['insurance']))
+  {
+    $info->setCheckbox('checked');
+  }
+  else
+  {
+    $info->setCheckbox('');
+  }
+  include("detail.php");
+}
+//Go back to homepage if "Précédent" is pressed
+
+if (!empty($_POST["gotohomepage"]))
+  {
+    include("homepage.php");
+  }
+// In page Detail, save names and ages and then go to page "summary"
+if (!empty($_POST["gotoresume"]))
+  {
+  $info->setAge($_POST['ages']);
+  $info->setName($_POST['names']);
+  include("summary.php");
+  }
+if (!empty($_POST["gotodetail"])) 
+  {
+  include ("detail.php");
+  }
+// If "Annuler" is pressed, we go to homepage and delete the session
+if (!empty($_POST["Cancel"]))
+  {
+    session_destroy();
+    unset($info);
+    include("homepage.php");
+  }
+  
+//If "confirmer" is pressed, we go to page confirmation 
+if (!empty($_POST["gotoconfirmation"]))
+  {
+  include("confirmation.php");
+  }
+if (isset($info))
+{
+  $_SESSION['info'] = serialize($info);
+}
+
+//if nothing has been given we are in homepage
+if(empty($_POST['NbPlaces']) && empty($_POST["Destination"]) && empty($_POST['NbPlaces']) && empty($_POST["Submit"]) && empty($_POST["gotohomepage"]) && empty($_POST["gotodetail"]) && empty($_POST["gotoresume"]) && empty($_POST["gotoconfirmation"]) && empty($_POST["Cancel"]))
+  {
+    include("homepage.php");
+  }
 ?>
-	
