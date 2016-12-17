@@ -98,6 +98,7 @@ class info
   
   public function getPrice()
   {
+	$totalprice = 0;
     foreach ($this->ages as $ages)
     {
       if ($ages <= 12)
@@ -109,7 +110,7 @@ class info
         $this->totalprice += 15;       
       }
     }
-      if ($this->checkbox = 'checked')
+      if ($this->checkbox == 'checked')
       {
         return $this->totalprice + 20;
       }
@@ -118,5 +119,53 @@ class info
         return $this->totalprice + 0;
       }
   }
+  
+  public function Price()
+  {
+	$price = $this->totalprice;
+	if ($this->checkbox == 'checked')
+	{
+		$price += 20;
+		return $price;
+	}
+	else
+	{
+		$price += 0;
+		return $price;
+	}
+   }
+   
+   public function HomepageError()
+   {
+				if(($this->Destination == "") && ($this->NbPlaces == ""))
+				{
+					return "Vous devez entrer une destination et un nombre de voyageur";
+				}
+				elseif($this->Destination == "")
+				{
+					return "Vous devez entrer une destination";
+				}
+				elseif($this->NbPlaces == "")
+				{
+					return "Vous devez entrer un nombre de voyageur";
+				}
+				else
+				{
+					return "Veuillez compléter le formulaire";
+				}
+	}
+	
+	public function DetailError()
+	{
+				if(in_array("",$this->names) || in_array("",$this->ages))
+				{
+					return "veuiller compléter entièrement le formulaire";
+				}
+				else
+				{
+					return '';
+				}
+	}
+	
 }
 ?>

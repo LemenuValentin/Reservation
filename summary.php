@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html>
       <head>
           <title>Reservation</title>
@@ -20,10 +20,6 @@
                 </tr>
 
                 <?php
-				//check if the user completed all informations
-                if(in_array("",$info->getName()) || in_array("",$info->getAge()))
-				{
-					echo "veuiller compléter entièrement le formulaire !! ";
 					for ($i = 0; $i <$info->getNbPlaces(); $i++)
 					{
 					  echo'
@@ -36,23 +32,6 @@
 							 <td> '.$info->getAge()[$i].'</td>
 						   </tr>';
 					}
-				}
-				else
-				{
-					for ($i = 0; $i <$info->getNbPlaces(); $i++)
-					{
-					  echo'
-					  <tr>
-							 <td>Nom:</td>
-							 <td> '.$info->getName()[$i].' </td>
-						   </tr>
-						   <tr>
-							 <td>Age:</td>
-							 <td> '.$info->getAge()[$i].'</td>
-						   </tr>';
-					}
-				}
-                
                 ?>
                 <tr>
                   <td>Assurance annulation:</td>
