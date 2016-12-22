@@ -7,7 +7,7 @@
 	</head>
 	<body>
 		<h1>Liste des réservations</h1>
-		<form method="post" action="Controler.php">
+		<form method="post" action="DBControler.php">
 		<table>
 			<tr>
 			  <td>Destination</td>
@@ -39,15 +39,19 @@
 			  {
 				echo ''.$row_person['Name'].'-'.$row_person['Age'].'ans</br>';
 			  }
+			//var_dump($data['IDres']);
+			$edit = 'edit'.$data['IDres'];
+			$delete = 'delete'.$data['IDres'];
+			echo '<td><input type="submit" value="éditer" name='.$edit.' /></td>
+				  <td><input type="submit" value="supprimer" name='.$delete.' /></td>';
 			
-			echo '<td><input type="submit" value="éditer" name="deleteDB" /></td>
-				  <td><input type="submit" value="supprimer" name="deleteDB" /></td>';
 		}
 		
-		$mysqli->close();
+		
+		//$mysqli->close();
 		?>
 		</table><br>
-		<input type='submit' name ='Cancel' value="Retour à la page d'acceuil" />
+		<input type='submit' name ='add' value="Ajouter une réservation" />
 		</form>
 	</body>
 </html>

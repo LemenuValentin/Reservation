@@ -23,23 +23,7 @@
 						  </tr>
 						  <tr>";
 		}
-		
-		if(($info->getDestination() == "") && ($info->getNbPlaces() == ""))
-				{
-					echo "Vous devez entrer une destination et un nombre de voyageur";
-				}
-				elseif($info->getDestination() == "")
-				{
-					echo "Vous devez entrer une destination";
-				}
-				elseif($info->getNbPlaces() == "")
-				{
-					echo "Vous devez entrer un nombre de voyageur";
-				}
-				else
-				{
-					echo "$affichage";
-				}
+			echo "$affichage";
 			?>
 			</table><br>
 			<input type='submit' value='Etape suivante' name='gotoresume' />

@@ -9,6 +9,8 @@ class info
   private $insurance;
   private $checkbox;
   private $totalprice;
+  private $Price;
+  private $IDedition;
 
   public function __construct($Destination ="", $NbPlaces="", $names= [], $ages= [])
   {
@@ -17,8 +19,13 @@ class info
     $this->names = $names;
     $this->ages = $ages;
 	$this->totalprice = 0;
+	$this->IDedition = 0;
   }
 
+  public function setPrice($newPrice)
+  {
+	$this->Price = $newPrice;
+	}
   public function getDestination()
   {
     return $this->Destination;
@@ -53,7 +60,6 @@ class info
 
    public function getName()
   { 
-    //Add '' when the input is empty
     while (count($this->names) < $this->NbPlaces)
     {
       array_push($this->names, "");
@@ -165,6 +171,16 @@ class info
 				{
 					return '';
 				}
+	}
+	
+	public function setIDedition($newID)
+	{
+		$this->IDedition = $newID;
+	}
+	
+	public function getIDedition()
+	{
+	return $this->IDedition;
 	}
 	
 }

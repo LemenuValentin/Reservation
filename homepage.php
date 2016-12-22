@@ -7,10 +7,14 @@
 	</head>
 	<body>
 		<h1>RESERVATION</h1>
-		<br/><br/><b><div class="warning"><?php if(isset($info)) echo $info->HomepageError();?></div></b>
+		<br/><br/><b><div class="warning"><?php if(isset($info) && !empty($_POST['Submit'])) echo $info->HomepageError();?></div></b>
 		<p> Le prix de la place est de 10 euros jusqu'à 12 ans et ensuite de 15 euros.<br>
 			Le prix de l'assurance annulation est de 20 euros quel que soit le nombre de voyageurs.
 		</p>
+		<?php 
+		//var_dump($info->getDestination());
+		//var_dump($info);
+		?>
 		<table>
 		<form method="post" action="Controler.php">
 			<tr>
@@ -25,7 +29,6 @@
 		</table><br>
 		<input type='submit' name ="Submit" value= "Etape suivante" />
 		<input type='submit' name ='Cancel' value='Annuler' />
-		<input type='submit' name='gotoDB' value="Liste des réservations"/>
 		</form>
 	</body>
 </html>

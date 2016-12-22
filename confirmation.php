@@ -16,9 +16,7 @@
 			}
 			?>
 			</p>
-			<input type='submit' name='backtoresume' value="précédent" />
             <input type='submit' name='Cancel' value="Retour à la page d'accueil"/>
-			<input type='submit' name='gotoDB' value="Liste des réservations"/>
           </form>
       </body>
 </html>
