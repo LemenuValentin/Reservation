@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 22 Décembre 2016 à 17:33
+-- Généré le :  Lun 26 Décembre 2016 à 20:56
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -33,19 +33,6 @@ CREATE TABLE `passenger` (
   `IDres` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Contenu de la table `passenger`
---
-
-INSERT INTO `passenger` (`id`, `Name`, `Age`, `IDres`) VALUES
-(18, 'lolo', '20', 17),
-(20, 'Valentin', '20', 19),
-(21, 'toku', '17', 19),
-(23, 'Valentin', '22', 21),
-(24, 'toku', '17', 21),
-(55, 'toku', '20', 43),
-(56, 'franky', '20', 44);
-
 -- --------------------------------------------------------
 
 --
@@ -59,17 +46,6 @@ CREATE TABLE `reservationinfo` (
   `Insurance` varchar(255) NOT NULL,
   `Price` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Contenu de la table `reservationinfo`
---
-
-INSERT INTO `reservationinfo` (`IDres`, `Destination`, `NbPlaces`, `Insurance`, `Price`) VALUES
-(17, 'Islande', 1, 'OUI', 35),
-(19, 'tokyo', 2, 'OUI', 50),
-(21, 'tokyo', 2, 'OUI', 50),
-(43, 'tokyo', 1, 'OUI', 35),
-(44, 'Corse', 1, 'OUI', 50);
 
 --
 -- Index pour les tables exportées
@@ -97,12 +73,12 @@ ALTER TABLE `reservationinfo`
 -- AUTO_INCREMENT pour la table `passenger`
 --
 ALTER TABLE `passenger`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT pour la table `reservationinfo`
 --
 ALTER TABLE `reservationinfo`
-  MODIFY `IDres` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `IDres` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- Contraintes pour les tables exportées
 --
