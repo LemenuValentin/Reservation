@@ -6,7 +6,7 @@
     </head>
 	<body>
 	  
-        <h1>Confirmation des réservations</h1>
+        <h1>CONFIRMATION DES RESERVATIONS</h1>
 		  
         <form method='post' action="Controler.php"
         <p>Votre demande a bien été enregistrée.<br>Merci de bien vouloir verser la somme de

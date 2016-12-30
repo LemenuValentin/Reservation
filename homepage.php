@@ -3,13 +3,13 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>Reservation</title>
-		<link href='style.css' type='text/css' rel='stylesheet' />
+		<link rel='stylesheet' type='text/css' href='style.css' />
 	</head>
 	<body>
 	
 		<h1>RESERVATION</h1>
 		
-		<br/><br/><b><div class="warning"><?php if(isset($info) 
+		<b><div class="warning"><?php if(isset($info) 
 			&& !empty($_POST['go_to_detail'])) echo $info->homepageError();?></div></b>
 			
 		<p> Le prix de la place est de 10 euros jusqu'à 12 ans et ensuite de 15 euros.<br>

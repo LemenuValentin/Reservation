@@ -7,7 +7,7 @@
 	</head>
 	<body>
 	
-		<h1>Liste des réservations</h1>
+		<h1>LISTE DES RESERVATIONS</h1>
 		
 		<form method="post" action="DBControler.php">
 		<table>

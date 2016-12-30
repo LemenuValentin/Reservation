@@ -7,9 +7,9 @@
 	</head>
 	<body>
 	
-		<h1>DETAIL DES RESERVATION</h1>
+		<h1>DETAIL DES RESERVATIONS</h1>
 		
-		<br/><br/><b><div class="warning"><?php if(isset($info)) echo $info->detailError();?></div></b>
+		<b><div class="warning"><?php if(isset($info)) echo $info->detailError();?></div></b>
 		
 		<table>
 		<form method ="post" action= "Controler.php">
